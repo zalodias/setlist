@@ -2,26 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer theme {
+  * {
+    --theme-hue: 240;
+    --theme-saturation: 80%;
+    --theme-lightness: 64%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --theme-light: var(--theme-hue) var(--theme-saturation)
+      var(--theme-lightness);
+    --foreground-01-light: var(--theme-hue) 8% 8%;
+    --foreground-02-light: var(--theme-hue) 8% 12%;
+    --foreground-03-light: var(--theme-hue) 8% 16%;
+    --foreground-04-light: var(--theme-hue) 8% 24%;
+    --background-01-light: var(--theme-hue) 8% 92%;
+    --background-02-light: var(--theme-hue) 8% 98%;
+    --background-03-light: var(--theme-hue) 8% 92%;
+    --background-04-light: var(--theme-hue) 8% 98%;
+
+    --theme-dark: hsl(
+      var(--theme-hue) var(--theme-saturation) var(--theme-lightness)
+    );
+    --foreground-01-dark: var(--theme-hue) 8% 98%;
+    --foreground-02-dark: var(--theme-hue) 8% 92%;
+    --foreground-03-dark: var(--theme-hue) 8% 88%;
+    --foreground-04-dark: var(--theme-hue) 8% 80%;
+    --background-01-dark: var(--theme-hue) 8% 8%;
+    --background-02-dark: var(--theme-hue) 8% 12%;
+    --background-03-dark: var(--theme-hue) 8% 16%;
+    --background-04-dark: var(--theme-hue) 8% 24%;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  :root {
+    color-scheme: light;
+
+    --theme: var(--theme-light);
+    --foreground-01: var(--foreground-01-light);
+    --foreground-02: var(--foreground-02-light);
+    --foreground-03: var(--foreground-03-light);
+    --foreground-04: var(--foreground-04-light);
+    --background-01: var(--background-01-light);
+    --background-02: var(--background-02-light);
+    --background-03: var(--background-03-light);
+    --background-04: var(--background-04-light);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+
+      --theme: var(--theme-dark);
+      --foreground-01: var(--foreground-01-dark);
+      --foreground-02: var(--foreground-02-dark);
+      --foreground-03: var(--foreground-03-dark);
+      --foreground-04: var(--foreground-04-dark);
+      --background-01: var(--background-01-dark);
+      --background-02: var(--background-02-dark);
+      --background-03: var(--background-03-dark);
+      --background-04: var(--background-04-dark);
+    }
+  }
 }
