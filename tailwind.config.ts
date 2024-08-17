@@ -1,20 +1,44 @@
 import type { Config } from "tailwindcss";
+import * as Colors from "tailwindcss/colors";
 
 const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}"],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    colors: {
+      background: {
+        neutral: {
+          default: Colors.white,
+          faded: Colors.neutral[50],
+          subtle: Colors.neutral[100],
+          strong: Colors.neutral[200],
+        },
+        brand: {
+          default: Colors.black,
+        },
+      },
+      foreground: {
+        neutral: {
+          default: Colors.neutral[950],
+          faded: Colors.neutral[500],
+          subtle: Colors.neutral[600],
+          strong: Colors.neutral[800],
+        },
+        brand: {
+          default: Colors.white,
+        },
+      },
+      border: {
+        neutral: {
+          default: Colors.neutral[300],
+          faded: Colors.neutral[100],
+          subtle: Colors.neutral[200],
+          strong: Colors.neutral[400],
+        },
+        brand: {
+          default: Colors.black,
+        },
       },
     },
   },
-  plugins: [],
 };
 export default config;
